@@ -1,5 +1,7 @@
 const { test, expect } = require("@playwright/test");
 const fs = require("fs");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const regionalLinks = [
   {
@@ -25,6 +27,7 @@ const regionalLinks = [
 ];
 let reports = [];
 let cookieJson = null;
+const REPORTS_DIR = process.env.REPORTS_DIRECTORY || __dirname + "/../reports";
 
 test.describe.configure({ mode: "serial" });
 
@@ -36,8 +39,9 @@ test.afterAll(async () => {
   if (reports.length > 0) {
     // Report in JSON format
     fs.writeFileSync(
-      __dirname +
-        `/../reports/${new Date().toISOString().slice(0, 10)}_retail_pump.json`,
+      `${REPORTS_DIR}/${new Date()
+        .toISOString()
+        .slice(0, 10)}_retail_pump.json`,
       JSON.stringify(reports)
     );
     console.log("Reports saved!");
