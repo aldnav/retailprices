@@ -38,7 +38,6 @@ Example input (.env)
 
 ```env
 REPORTS_DIRECTORY=/Users/arthurmorgan/petro/reports
-COOKIE_PATH=/Users/arthurmorgan/petro/cookies.json
 ```
 
 Example output (JSON)

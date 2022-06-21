@@ -25,6 +25,8 @@ const regionalLinks = [
 ];
 let reports = [];
 let cookieJson = null;
+const REPORTS_DIRECTORY =
+  process.env.REPORTS_DIRECTORY || __dirname + "/../reports";
 
 test.describe.configure({ mode: "serial" });
 
@@ -36,8 +38,9 @@ test.afterAll(async () => {
   if (reports.length > 0) {
     // Report in JSON format
     fs.writeFileSync(
-      __dirname +
-        `/../reports/${new Date().toISOString().slice(0, 10)}_retail_pump.json`,
+      `${REPORTS_DIRECTORY}/${new Date()
+        .toISOString()
+        .slice(0, 10)}_retail_pump.json`,
       JSON.stringify(reports)
     );
     console.log("Reports saved!");
