@@ -57,3 +57,40 @@ Example output (JSON)
   }
 ]
 ```
+
+
+## Development
+
+Run in Docker
+
+```console
+# cd to project, then run the following commands
+$ docker build --platform linux/x86_64 -tag docker-retailprices-local-dev .
+$ docker run -p 9000:9323 --platform linux/x86_64 -v $(pwd):/app --env-file .env_in_container --name retailprices --rm docker-retailprices-local-dev npm run test-pw  && npx playwright show-report
+
+> test-pw
+> npx playwright test
+
+
+Running 5 tests using 1 worker
+
+  ✓  [firefox] › doe.spec.js:60:5 › Retailing pump prices › Source: https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-metro-manila (39s)
+  ✓  [firefox] › doe.spec.js:60:5 › Retailing pump prices › Source: https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-south-luzon (16s)
+  ✓  [firefox] › doe.spec.js:60:5 › Retailing pump prices › Source: https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-north-luzon (18s)
+  ✓  [firefox] › doe.spec.js:60:5 › Retailing pump prices › Source: https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-visayas (16s)
+Reports saved!
+  ✓  [firefox] › doe.spec.js:60:5 › Retailing pump prices › Source: https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-mindanao (17s)
+
+  Slow test file: [firefox] › doe.spec.js (2m)
+  Consider splitting slow test files to speed up parallel execution
+
+  5 passed (2m)
+
+  Serving HTML report at http://127.0.0.1:9323. Press Ctrl+C to quit.
+```
+
+Notes:
+
+1. Currently for Docker on M1, only Firefox runs smoothly.
+2. The `--platform linux/x86_64` is needed for Docker on M1.
+3. The `--env-file .env_in_container` can be used especially when switching easily the reports directory (env `REPORTS_DIRECTORY=/app/reports`)

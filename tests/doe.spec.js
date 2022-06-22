@@ -28,6 +28,8 @@ let cookieJson = null;
 const REPORTS_DIRECTORY =
   process.env.REPORTS_DIRECTORY || __dirname + "/../reports";
 
+let page;
+
 test.describe.configure({ mode: "serial" });
 
 test.beforeAll(async ({ browser }) => {
