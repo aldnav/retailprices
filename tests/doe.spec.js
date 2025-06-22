@@ -4,23 +4,23 @@ const fs = require("fs");
 const regionalLinks = [
   {
     name: "NCR/Metro Manila",
-    url: "https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-metro-manila",
+    url: "https://legacy.doe.gov.ph/oil-monitor?q=retail-pump-prices-metro-manila",
   },
   {
     name: "South Luzon",
-    url: "https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-south-luzon",
+    url: "https://legacy.doe.gov.ph/oil-monitor?q=retail-pump-prices-south-luzon",
   },
   {
     name: "North Luzon",
-    url: "https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-north-luzon",
+    url: "https://legacy.doe.gov.ph/oil-monitor?q=retail-pump-prices-north-luzon",
   },
   {
     name: "Visayas",
-    url: "https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-visayas",
+    url: "https://legacy.doe.gov.ph/oil-monitor?q=retail-pump-prices-visayas",
   },
   {
     name: "Mindanao",
-    url: "https://www.doe.gov.ph/oil-monitor?q=retail-pump-prices-mindanao",
+    url: "https://legacy.doe.gov.ph/oil-monitor?q=retail-pump-prices-mindanao",
   },
 ];
 let reports = [];
