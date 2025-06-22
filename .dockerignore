@@ -8,3 +8,4 @@ tests/cookies.json
 output.csv
 output.json
 reports/
+!tests/doe.spec.js
