@@ -65,8 +65,8 @@ Run in Docker
 
 ```console
 # cd to project, then run the following commands
-$ docker build --platform linux/x86_64 -tag docker-retailprices-local-dev .
-$ docker run -p 9000:9323 --platform linux/x86_64 -v $(pwd):/app --env-file .env_in_container --name retailprices --rm docker-retailprices-local-dev npm run test-pw  && npx playwright show-report
+$ docker build -tag retailprices .
+$ docker run -p 9000:9323 -v $(pwd):/app --env-file .env_in_container --name retailprices --rm retailprices npm run test-pw  && npx playwright show-report
 
 > test-pw
 > npx playwright test
