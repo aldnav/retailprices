@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.description="Get publicly available data at Depar
 
 WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
-RUN npm install --production
+RUN npm ci
 # RUN npm install @playwright/test
 RUN npx -y playwright install --with-deps
 

@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "@playwright/test": "^1.21.1",
-    "playwright": "^1.21.1",
-    "dotenv": "^16.0.1"
+    "@playwright/test": "^1.53.0",
+    "playwright": "^1.53.0",
+    "dotenv": "^16.5.0"
   },
   "scripts": {
     "test-pw": "npx playwright test",
