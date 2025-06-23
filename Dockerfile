@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM mcr.microsoft.com/playwright:v1.53.0-noble AS build
+FROM node:20-bookworm
 ENV NODE_ENV=production
 LABEL org.opencontainers.image.source=https://github.com/aldnav/retailprices
 LABEL org.opencontainers.image.description="Get publicly available data at Department of Energy"
@@ -7,10 +7,8 @@ LABEL org.opencontainers.image.description="Get publicly available data at Depar
 WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm ci
-# RUN npm install @playwright/test
 RUN npx -y playwright install --with-deps
 
-FROM build AS stage2
 RUN mkdir -p reports
 COPY playwright.config.ts .
 COPY tests tests
